@@ -1,3 +1,4 @@
+import fetch from 'isomorphic-unfetch';
 import style from '../styles/style.scss';
 import Header from '../components/Header';
 // import Main from '../components/Main';
