@@ -1,3 +1,36 @@
 @import 'bulma/sass/utilities/initial-variables';
 
+$main-red: #A23640;
+$main-gray: #1F262B;
+$main-pink: #FBCCC7;
+$white: #FFFFFF;
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: $white !important;
+    opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: white !important;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: white !important;
+}
+
+.header{
+    background-color: $main-red !important;
+    color: $main-pink !important;
+    border: 0px !important;
+}
+
+.main {
+    background-color: $main-gray;
+    color: $white;
+}
+
+.padding20 {
+    padding: 25px;
+}
+
 @import 'bulma/bulma';
