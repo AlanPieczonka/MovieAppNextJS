@@ -17,8 +17,19 @@
         {
           "extensions": ["css$", "scss$"]
         }
+      ],
+      [
+        "transform-decorators-legacy"
       ]
     ],
-    "presets": ["next/babel"],
+    "presets": [
+      ["next/babel", {
+        "preset-env": {
+          "targets": {
+            "browsers": ["last 2 versions", "chrome >= 41"]
+          }
+        }
+      }]
+    ],
     "ignore": []
   }
