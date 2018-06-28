@@ -4,7 +4,7 @@ class Header extends Component {
 	render() {
 		return (
 			<div className="header">
-				<div className="container padding20">
+				<div className="container padding--top25">
 					<div className="field is-horizontal">
 						<div className="field-body">
 							<div className="field">

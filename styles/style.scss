@@ -29,8 +29,12 @@ $white: #FFFFFF;
     color: $white;
 }
 
-.padding20 {
-    padding: 25px;
+.padding--top25 {
+    padding: 25px !important;
+}
+
+.padding--top100 {
+    padding-top: 100px !important;
 }
 
 @import 'bulma/bulma';
