@@ -1,7 +1,4 @@
-import React from 'react';
 import style from '../styles/style.scss';
-
-let coe = "sdf";
 
 const Index = () => (
 	<div>
