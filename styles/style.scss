@@ -5,6 +5,8 @@ $main-gray: #1F262B;
 $main-pink: #FBCCC7;
 $white: #FFFFFF;
 
+$title-color: $white;
+
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: $white !important;
     opacity: 1; /* Firefox */

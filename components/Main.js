@@ -9,7 +9,7 @@ const Main = ({ movies, genres }) => {
 			<div className="columns" key={i}>
 				{section.map(({ title, poster_path, id, genre_ids }) => (
 					<div className="column movie-cell" key={id}>
-						<Link as={`/movie/${id}`} href={`/movie?id=${id}`}>
+						<Link prefetch as={`movie/${id}`} href={{ pathname: '/movie', query: { id }}}>
 							<img src={`https://image.tmdb.org/t/p/w500/${poster_path}`} alt={`Link to ${title}`} />
 						</Link>
 						<div className="bold">{title}</div>
