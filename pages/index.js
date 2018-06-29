@@ -1,4 +1,5 @@
 import fetch from 'isomorphic-unfetch';
+import PropTypes from 'prop-types';
 import style from '../styles/style.scss';
 import Header from '../components/Header';
 import Main from '../components/Main';
@@ -28,5 +29,10 @@ Index.getInitialProps = async () => {
 		genres
 	};
 };
+
+Index.propTypes = {
+	movies: PropTypes.array.isRequired,
+	genres: PropTypes.array.isRequired,
+}
 
 export default Index;
