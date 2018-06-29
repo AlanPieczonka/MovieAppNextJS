@@ -1,14 +1,14 @@
 import fetch from 'isomorphic-unfetch';
 import style from '../styles/style.scss';
 import Header from '../components/Header';
-// import Main from '../components/Main';
+import Main from '../components/Main';
 import API_KEY from '../api_key';
 
-const Index = () => (
+const Index = ({ movies }) => (
 	<div>
 		<style dangerouslySetInnerHTML={{ __html: style }} />
 		<Header />
-		{/* <Main movies={movies} /> */}
+		<Main movies={movies} />
 	</div>
 );
 

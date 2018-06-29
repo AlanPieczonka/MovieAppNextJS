@@ -1,20 +1,28 @@
-import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import chunk from './../utils/chunk';
 
-export class Main extends Component {
-	render() {
+const Main = ({ movies }) => {
+	const moviesList = chunk(movies, 4).map((section, i) => {
 		return (
-			<div className="main">
-				<div className="container">
-					<div class="columns">
-						<div class="column">First column</div>
-						<div class="column">Second column</div>
-						<div class="column">Third column</div>
-						<div class="column">Fourth column</div>
+			<div className="columns" key={i}>
+				{section.map(({ title, poster_path, id }) => (
+					<div className="column" key={id}>
+						<img src={`https://image.tmdb.org/t/p/w500/${poster_path}`} alt={`Link to ${title}`} />
+						<div>{title}</div>
 					</div>
-				</div>
+				))}
 			</div>
 		);
-	}
-}
+	});
+	return (
+		<div className="main">
+			<div className="container padding--top100">{moviesList}</div>
+		</div>
+	);
+};
+
+Main.propTypes = {
+	movies: PropTypes.array.isRequired,
+};
 
 export default Main;
