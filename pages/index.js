@@ -2,7 +2,7 @@ import fetch from 'isomorphic-unfetch';
 import PropTypes from 'prop-types';
 import style from '../styles/style.scss';
 import Header from '../components/Header';
-import MoviesList from '../components/MoviesList';
+import MoviesList from '../components/MovieList';
 import API_KEY from '../api_key';
 
 class Index extends React.Component {
