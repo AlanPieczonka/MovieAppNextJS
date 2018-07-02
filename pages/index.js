@@ -2,7 +2,7 @@ import fetch from 'isomorphic-unfetch';
 import PropTypes from 'prop-types';
 import style from '../styles/style.scss';
 import Header from '../components/Header';
-import Main from '../components/Main';
+import MoviesList from '../components/MoviesList';
 import API_KEY from '../api_key';
 
 class Index extends React.Component {
@@ -34,7 +34,7 @@ class Index extends React.Component {
 			<div>
 				<style dangerouslySetInnerHTML={{ __html: style }} />
 				<Header />
-				<Main movies={movies} genres={genres} />
+				<MoviesList movies={movies} genres={genres} />
 			</div>
 		);
 	}
