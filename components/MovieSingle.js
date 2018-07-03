@@ -1,6 +1,7 @@
 // todo: add propTypes
 class MovieSingle extends React.Component {
 	render() {
+		const { title, release_date, runtime, vote_average, overview, genres, poster_path } = this.props.movie;
 		return (
 			<React.Fragment>
 				<div className="container">
