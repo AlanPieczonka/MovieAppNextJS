@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import style from '../styles/style.scss';
 import Header from '../components/Header';
 import API_KEY from '../api_key';
+import MovieSingle from '../components/MovieSingle';
 
 class Movie extends React.Component {
 	static async getInitialProps({ query }) {
