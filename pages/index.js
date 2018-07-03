@@ -1,24 +1,21 @@
-import fetch from 'isomorphic-unfetch';
+import { observer } from 'mobx-react';
 import PropTypes from 'prop-types';
 import style from '../styles/style.scss';
 import Header from '../components/Header';
 import MoviesList from '../components/MovieList';
-import API_KEY from '../api_key';
+import { getAllMovies, getAllGenres } from '../services/api';
+import appStore from '../store';
 
+
+@observer
 class Index extends React.Component {
 	static async getInitialProps() {
-		const res = await fetch(
-			`https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1`
-		);
-		const { results } = await res.json();
-
-		const genresList = await fetch(
-			'https://api.themoviedb.org/3/genre/movie/list?api_key=25e0de523619bc43f6c36fe4fc6d97ed&language=en-US'
-		);
-		const { genres } = await genresList.json();
+		const movies = await getAllMovies();
+		const genres = await getAllGenres();
+		// const movies = appStore.movies;
 
 		return {
-			movies: results,
+			movies,
 			genres
 		};
 	}
@@ -33,8 +30,8 @@ class Index extends React.Component {
 		return (
 			<div>
 				<style dangerouslySetInnerHTML={{ __html: style }} />
-				<Header />
-				<MoviesList movies={movies} genres={genres} />
+				<Header store={appStore} />
+				<MoviesList state={appStore.state} movies={appStore.movies} genres={genres} />
 			</div>
 		);
 	}

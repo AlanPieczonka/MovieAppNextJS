@@ -1,17 +1,17 @@
-import fetch from 'isomorphic-unfetch';
+import { observer } from 'mobx-react';
 import PropTypes from 'prop-types';
 import style from '../styles/style.scss';
 import Header from '../components/Header';
-import API_KEY from '../api_key';
 import MovieSingle from '../components/MovieSingle';
+import appStore from '../store';
+import { getSingleMovie } from '../services/api';
 
+@observer
 class Movie extends React.Component {
-	static async getInitialProps({ query }) {
-		const { id } = query;
-		const res = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&language=en-US`);
-		const movie = await res.json();
-
-		return { movie };
+	static async getInitialProps({ query: { id } }) {
+		return {
+			movie: await getSingleMovie(id)
+		};
 	}
 
 	static propTypes = {
@@ -22,7 +22,7 @@ class Movie extends React.Component {
 		return (
 			<div className="main">
 				<style dangerouslySetInnerHTML={{ __html: style }} />
-				<Header />
+				<Header store={appStore} />
 				<MovieSingle movie={this.props.movie} />
 			</div>
 		);
