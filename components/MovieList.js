@@ -2,14 +2,16 @@ import Link from 'next/link';
 import PropTypes from 'prop-types';
 import chunk from '../utils/chunk';
 import getGenres from '../utils/getGenres';
+import { observer } from 'mobx-react';
 
+@observer // not really required for now
 class MoviesList extends React.Component {
 	static propTypes = {
 		movies: PropTypes.array.isRequired,
 		genres: PropTypes.array.isRequired
 	};
 	render() {
-		const { movies, genres } = this.props;
+		const { movies, genres, requestState } = this.props;
 		const moviesList = chunk(movies, 4).map((section, i) => {
 			return (
 				<div className="columns" key={i}>
@@ -27,6 +29,7 @@ class MoviesList extends React.Component {
 		});
 		return (
 			<div className="main">
+				<div>{requestState}</div>
 				<div className="container padding--top100">{moviesList}</div>
 			</div>
 		);

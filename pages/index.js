@@ -31,7 +31,7 @@ class Index extends React.Component {
 			<div>
 				<style dangerouslySetInnerHTML={{ __html: style }} />
 				<Header store={appStore} />
-				<MoviesList state={appStore.state} movies={appStore.movies} genres={genres} />
+				<MoviesList requestState={appStore.requestState} movies={appStore.movies} genres={genres} />
 			</div>
 		);
 	}
