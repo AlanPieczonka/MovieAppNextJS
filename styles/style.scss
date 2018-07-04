@@ -29,6 +29,7 @@ $title-color: $white;
 .main {
     background-color: $main-gray;
     color: $white;
+    padding-top: 25px;
 }
 
 .padding--top25 {
@@ -36,7 +37,13 @@ $title-color: $white;
 }
 
 .padding--top100 {
-    padding-top: 100px !important;
+    padding-top: 25px !important;
+}
+
+.columns--padding {
+    @media only screen and (max-width: 1087px) {
+        padding: 0 45px !important;
+    }
 }
 
 .text-center {
