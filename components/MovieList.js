@@ -11,10 +11,10 @@ class MoviesList extends React.Component {
 		genres: PropTypes.array.isRequired
 	};
 	render() {
-		const { movies, genres, requestState } = this.props;
+		const { movies, genres, requestState, status } = this.props;
 		const moviesList = chunk(movies, 4).map((section, i) => {
 			return (
-				<div className="columns" key={i}>
+				<div className="columns columns--padding" key={i}>
 					{section.map(({ title, poster_path, id, genre_ids }) => (
 						<div className="column movie-cell" key={id}>
 							<Link prefetch as={`movie/${id}`} href={{ pathname: '/movie', query: { id } }}>
@@ -29,7 +29,8 @@ class MoviesList extends React.Component {
 		});
 		return (
 			<div className="main">
-				<div>{requestState}</div>
+				<h1 className="text-center">Request state: {requestState}</h1>
+				<h2 className="text-center">{status}</h2>
 				<div className="container padding--top100">{moviesList}</div>
 			</div>
 		);

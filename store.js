@@ -26,12 +26,13 @@ class Store {
 	}
 
 	@computed
+	get status() {
+		return this.searchTerm.length ? `Results for: ${this.searchTerm}` : 'Popular movies now';
+	}
+
+	@computed
 	get searchTermEmpty() {
-		if (this.searchTerm.length) {
-			return 'searchTerm is not empty';
-		} else {
-			return 'searchTerm is empty';
-		}
+		return this.searchTerm.length ? 'searchTerm is not empty' : 'searchTerm is empty';
 	}
 
 	@action
