@@ -11,7 +11,6 @@ class Header extends React.Component {
 						<div className="field-body">
 							<div className="field">
 								<div className="control has-icons-left has-icons-right">
-									<h1>{this.props.searchStore.searchTerm}</h1>
 									<input
 										className="input is-large header"
 										type="search"
