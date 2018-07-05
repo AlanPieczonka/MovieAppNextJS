@@ -4,8 +4,7 @@ import style from '../styles/style.scss';
 import Header from '../components/Header';
 import MoviesList from '../components/MovieList';
 import { getAllMovies, getAllGenres } from '../services/api';
-import appStore from '../store';
-
+import { searchStore, appStore } from '../store';
 
 @observer
 class Index extends React.Component {
@@ -30,8 +29,14 @@ class Index extends React.Component {
 		return (
 			<div>
 				<style dangerouslySetInnerHTML={{ __html: style }} />
-				<Header store={appStore} />
-				<MoviesList status={appStore.status} requestState={appStore.requestState} movies={appStore.movies} genres={genres} />
+				<Header searchStore={searchStore} />
+				<div className="text-center">
+					{'searchTerm from main store: ' + appStore.searchTermFromMainStore}
+				</div>
+				<div className="text-center">
+					{'requestStatus: ' + appStore.requestStatus}
+				</div>
+				<MoviesList requestStatus={appStore.requestStatus} movies={appStore.movies} genres={genres} />
 			</div>
 		);
 	}

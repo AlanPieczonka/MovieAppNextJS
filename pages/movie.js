@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import style from '../styles/style.scss';
 import Header from '../components/Header';
 import MovieSingle from '../components/MovieSingle';
-import appStore from '../store';
+import { appStore, searchStore } from '../store';
 import { getSingleMovie } from '../services/api';
 
 @observer
@@ -22,7 +22,7 @@ class Movie extends React.Component {
 		return (
 			<div className="main">
 				<style dangerouslySetInnerHTML={{ __html: style }} />
-				<Header store={appStore} />
+				<Header searchStore={searchStore} />
 				<MovieSingle movie={this.props.movie} />
 			</div>
 		);

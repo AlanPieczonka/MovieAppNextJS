@@ -11,7 +11,7 @@ class MoviesList extends React.Component {
 		genres: PropTypes.array.isRequired
 	};
 	render() {
-		const { movies, genres, requestState, status } = this.props;
+		const { movies, genres, requestStatus } = this.props;
 		const moviesList = chunk(movies, 4).map((section, i) => {
 			return (
 				<div className="columns columns--padding" key={i}>
@@ -29,8 +29,7 @@ class MoviesList extends React.Component {
 		});
 		return (
 			<div className="main">
-				<h1 className="text-center">Request state: {requestState}</h1>
-				<h2 className="text-center">{status}</h2>
+				<h1 className="text-center">Request status: {requestStatus}</h1>
 				<div className="container padding--top100">{moviesList}</div>
 			</div>
 		);

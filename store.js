@@ -1,46 +1,93 @@
-import { observable, computed, action } from 'mobx';
-import { getAllMovies } from './services/api';
+import { observable, computed, action, autorun } from 'mobx';
+import { getAllMovies, searchMovie } from './services/api';
 
-class Store {
+class SearchStore {
 	@observable searchTerm = '';
-	@observable movies = [];
-	@observable requestState = 'pending';
-
-	constructor() {
-		this.fetchAllMovies();
-	}
 
 	@action
-	fetchAllMovies() {
-		this.movies = [];
-		this.requestState = 'pending';
-		getAllMovies().then(
-			action('fetchAllMoviesSucess', (movies) => {
-				this.movies = movies;
-				this.requestState = 'done';
-			}),
-			action('fetchAllMoviesError', (error) => {
-				this.requestState = 'error';
-			})
+	setSearchTerm = (searchTerm) => {
+		this.searchTerm = searchTerm;
+	};
+}
+
+// another store only for API??
+// - requestStatus
+// fetching all of the stuff
+
+class Store {
+	@observable searchStore;
+	@observable requestStatus = 'done';
+	@observable movies = [];
+	@observable initialMovies = null;
+
+	constructor(searchStore) {
+		this.searchStore = searchStore;
+		this.fetchInitialMovies();
+		autorun(
+			() => {
+				if (this.searchStore.searchTerm.length > 5) {
+					this.requestStatus = 'pending';
+					this.fetchSpecificMovies(this.searchStore.searchTerm);
+				} else if (this.searchStore.searchTerm.length < 5 && this.initialMovies !== null) {
+					this.movies = this.initialMovies;
+				}
+			},
+			{ delay: 1500 },
 		);
 	}
 
 	@computed
-	get status() {
-		return this.searchTerm.length ? `Results for: ${this.searchTerm}` : 'Popular movies now';
-	}
-
-	@computed
-	get searchTermEmpty() {
-		return this.searchTerm.length ? 'searchTerm is not empty' : 'searchTerm is empty';
+	get searchTermFromMainStore() {
+		return this.searchStore.searchTerm;
 	}
 
 	@action
-	updateSearchTerm(searchTerm) {
-		this.searchTerm = searchTerm;
+	fetchInitialMovies() {
+		this.requestStatus = 'pending';
+		getAllMovies().then(
+			action('fetchInitialMoviesSuccess', (movies) => {
+				this.initialMovies = movies;
+				this.movies = this.initialMovies;
+				this.requestStatus = 'done';
+			}),
+			action('fetchAllMoviesEror', (error) => {
+				this.requestStatus = 'error';
+			})
+		);
+	}
+
+	@action
+	fetchAllMovies() {
+		console.log('fetchAllMovies started');
+		this.requestStatus = 'pending';
+		getAllMovies().then(
+			action('fetchAllMoviesSucess', (movies) => {
+				this.movies = movies;
+				this.requestStatus = 'done';
+			}),
+			action('fetchAllMoviesError', (error) => {
+				this.requestStatus = 'error';
+			})
+		);
+	}
+
+	@action
+	fetchSpecificMovies(query) {
+		console.log('starting to search specific movies with query: ', query);
+		this.requestStatus = 'pending';
+		searchMovie(query).then(
+			action('fetchSingleMovieSuccess', (movies) => {
+				this.movies = movies;
+				this.requestStatus = 'done';
+			}),
+			action('fetchSingleMovieError', (error) => {
+				this.requestStatus = 'error';
+			})
+		);
 	}
 }
 
-const appStore = new Store();
+const searchStore = new SearchStore();
+const appStore = new Store(searchStore);
 
-export default appStore;
+export { appStore, searchStore };
