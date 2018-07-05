@@ -22,7 +22,6 @@ class Movie extends React.Component {
 		return (
 			<div className="main">
 				<style dangerouslySetInnerHTML={{ __html: style }} />
-				<Header searchStore={searchStore} />
 				<MovieSingle movie={this.props.movie} />
 			</div>
 		);
