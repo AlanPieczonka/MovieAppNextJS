@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 // todo: add propTypes
 class MovieSingle extends React.Component {
 	render() {
@@ -5,6 +7,11 @@ class MovieSingle extends React.Component {
 		return (
 			<React.Fragment>
 				<div className="container">
+					<div className="text-center padding--top25">
+						<Link href="/">
+							<button className="button">Go back to index page</button>
+						</Link>
+					</div>
 					<div className="columns">
 						<div className="column text-center">
 							<h1 className="title is-1">{title}</h1>
