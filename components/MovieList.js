@@ -1,10 +1,10 @@
+import { observer } from 'mobx-react';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
 import chunk from '../utils/chunk';
 import getGenres from '../utils/getGenres';
-import { observer } from 'mobx-react';
 
-@observer // not really required for now
+@observer // not really required for now 
 class MoviesList extends React.Component {
 	static propTypes = {
 		movies: PropTypes.array.isRequired,
