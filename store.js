@@ -32,7 +32,7 @@ class Store {
 					this.movies = this.initialMovies;
 				}
 			},
-			{ delay: 1500 },
+			{ delay: 1000 },
 		);
 	}
 
