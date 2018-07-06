@@ -32,12 +32,16 @@ $title-color: $white;
     padding-top: 25px;
 }
 
-.padding--top25 {
+.padding--25 {
     padding: 25px !important;
 }
 
-.padding--top100 {
+.padding--top25 {
     padding-top: 25px !important;
+}
+
+.margin--top25 {
+    margin-top: 25px !important;
 }
 
 .columns--padding {
@@ -50,6 +54,10 @@ $title-color: $white;
     text-align: center !important;
 }
 
+.image-center {
+    margin: 0 auto !important;
+}
+
 .movie-cell {
     @media only screen and (max-width: 768px) {
         text-align: center;
@@ -58,6 +66,10 @@ $title-color: $white;
 
 .bold {
     font-weight: bold !important;
+}
+
+.height100 {
+    height: 100vh !important;
 }
 
 @import 'bulma/bulma';
