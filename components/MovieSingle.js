@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import PropTypes from 'prop-types';
 
-// todo: add propTypes
 class MovieSingle extends React.Component {
 	static propTypes = {
 		movie: PropTypes.shape({
@@ -31,7 +30,7 @@ class MovieSingle extends React.Component {
 							<div className="column">
 								<section>
 									<p className="title is-3">Runtime</p>
-									<p className="subtitle is-5">{runtime}</p>
+									<p className="subtitle is-5">{runtime}m</p>
 								</section>
 								<section>
 									<p className="title is-3">Release date</p>
@@ -39,20 +38,22 @@ class MovieSingle extends React.Component {
 								</section>
 								<section>
 									<p className="title is-3">Average vote</p>
-									<p className="subtitle is-5">{vote_average}</p>
-								<progress className="progress is-info" value={vote_average} max="10">
-									{vote_average}
-								</progress>
+									<p className="subtitle is-5" style={{ marginBottom: 5 }}>
+										{vote_average}
+									</p>
+									<progress className="progress is-info" value={vote_average} max="10">
+										{vote_average}
+									</progress>
 								</section>
-								<section>
-								<p className="title is-3">Genres</p>
-								<p className="subtitle is-5">
-									{genres.map((genre) => (
-										<React.Fragment key={genre.id}>{genre.name} </React.Fragment>
-									))}
-								</p>
+								<section style={{ marginBottom: 5}}>
+									<p className="title is-3">Genres</p>
+									<p className="subtitle is-5">
+										{genres.map((genre) => (
+											<React.Fragment key={genre.id}>{genre.name} </React.Fragment>
+										))}
+									</p>
 								</section>
-								<p>{overview}</p>
+								<article>{overview}</article>
 								<div className="text-center">
 									<Link href="/">
 										<button className="button margin--top25">Go back to the main page</button>
