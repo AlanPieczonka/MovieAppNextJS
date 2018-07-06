@@ -6,7 +6,7 @@ class Header extends React.Component {
 	render() {
 		return (
 			<div className="header">
-				<div className="container padding--top25">
+				<div className="container padding--25">
 					<div className="field is-horizontal">
 						<div className="field-body">
 							<div className="field">
