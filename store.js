@@ -10,15 +10,11 @@ class SearchStore {
 	};
 }
 
-// another store only for API??
-// - requestStatus
-// fetching all of the stuff
-
 class Store {
 	@observable searchStore;
-	@observable requestStatus = 'done';
+	@observable requestStatus;
 	@observable movies = [];
-	@observable initialMovies = null;
+	@observable initialMovies = [];
 
 	constructor(searchStore) {
 		this.searchStore = searchStore;
@@ -32,13 +28,8 @@ class Store {
 					this.movies = this.initialMovies;
 				}
 			},
-			{ delay: 1000 },
+			{ delay: 1000 }
 		);
-	}
-
-	@computed
-	get searchTermFromMainStore() {
-		return this.searchStore.searchTerm;
 	}
 
 	@action
@@ -58,7 +49,6 @@ class Store {
 
 	@action
 	fetchAllMovies() {
-		console.log('fetchAllMovies started');
 		this.requestStatus = 'pending';
 		getAllMovies().then(
 			action('fetchAllMoviesSucess', (movies) => {
@@ -73,7 +63,6 @@ class Store {
 
 	@action
 	fetchSpecificMovies(query) {
-		console.log('starting to search specific movies with query: ', query);
 		this.requestStatus = 'pending';
 		searchMovie(query).then(
 			action('fetchSingleMovieSuccess', (movies) => {
