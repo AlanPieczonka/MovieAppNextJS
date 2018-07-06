@@ -1,4 +1,4 @@
-export default (array, size) => {
+export default (array, size = 4) => {
 	return array.reduce((chunks, item, i) => {
 		if (i % size === 0) {
 			chunks.push([ item ]);
