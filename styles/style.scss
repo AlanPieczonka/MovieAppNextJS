@@ -1,75 +1,88 @@
-@import 'bulma/sass/utilities/initial-variables';
+@import "~bulma";
 
-$main-red: #A23640;
-$main-gray: #1F262B;
-$main-pink: #FBCCC7;
-$white: #FFFFFF;
+$main-red: #a23640;
+$main-gray: #1f262b;
+$main-pink: #fbccc7;
+$white: #ffffff;
 
 $title-color: $white;
 
-::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-    color: $white !important;
-    opacity: 1; /* Firefox */
+::placeholder {
+	/* Chrome, Firefox, Opera, Safari 10.1+ */
+	color: $white !important;
+	opacity: 1; /* Firefox */
 }
 
-:-ms-input-placeholder { /* Internet Explorer 10-11 */
-    color: white !important;
+:-ms-input-placeholder {
+	/* Internet Explorer 10-11 */
+	color: white !important;
 }
 
-::-ms-input-placeholder { /* Microsoft Edge */
-    color: white !important;
+::-ms-input-placeholder {
+	/* Microsoft Edge */
+	color: white !important;
 }
 
-.header{
-    background-color: $main-red !important;
-    color: $main-pink !important;
-    border: 0px !important;
+.header {
+	background-color: $main-red;
+	color: $main-pink;
+	border: 0px;
 }
 
 .main {
-    background-color: $main-gray;
-    color: $white;
-    padding-top: 25px;
+	background-color: $main-gray;
+	color: $white;
+	padding-top: 25px;
+}
+
+.input-icon {
+    color: white;
 }
 
 .padding--25 {
-    padding: 25px !important;
+	padding: 25px;
+}
+
+.padding--top0 {
+    padding-top: 0;
 }
 
 .padding--top25 {
-    padding-top: 25px !important;
+	padding-top: 25px;
 }
 
 .margin--top25 {
-    margin-top: 25px !important;
+	margin-top: 25px;
 }
 
 .columns--padding {
-    @media only screen and (max-width: 1087px) {
-        padding: 0 45px !important;
-    }
+	@media only screen and (max-width: 1087px) {
+		padding: 0 45px;
+	}
 }
 
 .text-center {
-    text-align: center !important;
+	text-align: center;
 }
 
 .image-center {
-    margin: 0 auto !important;
+	margin: 0 auto;
 }
 
 .movie-cell {
-    @media only screen and (max-width: 768px) {
-        text-align: center;
-    }
+	@media only screen and (max-width: 768px) {
+		text-align: center;
+	}
+}
+
+.title {
+	color: $white;
 }
 
 .bold {
-    font-weight: bold !important;
+	font-weight: bold;
 }
 
 .height100 {
-    height: 100vh !important;
+	height: 100vh;
 }
-
-@import 'bulma/bulma';
