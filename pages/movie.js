@@ -1,15 +1,15 @@
 import { observer } from 'mobx-react';
 import PropTypes from 'prop-types';
-import style from '../styles/style.scss';
 import MovieSingle from '../components/MovieSingle';
 import { getSingleMovie } from '../services/api';
+
+import '../styles/style.scss';
 
 @observer
 class Movie extends React.Component {
 	static async getInitialProps({ query: { id } }) {
-		return {
-			movie: await getSingleMovie(id)
-		};
+		const movie = await getSingleMovie(id);
+		return { movie };
 	}
 
 	static propTypes = {
@@ -19,7 +19,6 @@ class Movie extends React.Component {
 	render() {
 		return (
 			<div className="main">
-				<style dangerouslySetInnerHTML={{ __html: style }} />
 				<MovieSingle movie={this.props.movie} />
 			</div>
 		);

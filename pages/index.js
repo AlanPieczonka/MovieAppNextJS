@@ -1,17 +1,17 @@
 import { observer, Provider } from 'mobx-react';
 import PropTypes from 'prop-types';
-import style from '../styles/style.scss';
 import Header from '../components/Header';
 import MoviesList from '../components/MovieList';
 import { getAllGenres } from '../services/api';
 import { searchStore, appStore } from '../store';
 
+import '../styles/style.scss';
+
 @observer
 class Index extends React.Component {
 	static async getInitialProps() {
-		return {
-			genres: await getAllGenres()
-		};
+		const genres = await getAllGenres();
+		return { genres };
 	}
 
 	static propTypes = {
@@ -22,7 +22,6 @@ class Index extends React.Component {
 		const { genres } = this.props;
 		return (
 			<div>
-				<style dangerouslySetInnerHTML={{ __html: style }} />
 				<Provider searchStore={searchStore}>
 					<Header />
 				</Provider>
