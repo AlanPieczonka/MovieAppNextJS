@@ -8,7 +8,16 @@
   "license": "MIT",
   "scripts": {
     "dev": "node server.js",
-    "format": "prettier-standard **/*.js"
+    "format": "prettier-standard **/*.js",
+    "precommit": "lint-staged"
+  },
+  "lint-staged": {
+    "linters": {
+      "**/*.js": [
+        "prettier-standard",
+        "git add"
+      ]
+    }
   },
   "dependencies": {
     "@zeit/next-sass": "^0.2.0",
@@ -41,6 +50,8 @@
     "eslint-plugin-import": "^2.12.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.9.1",
+    "husky": "^0.14.3",
+    "lint-staged": "^7.2.0",
     "prettier-standard": "^8.0.1"
   }
 }
