@@ -20,7 +20,7 @@ class Header extends React.Component {
 										onChange={this.handleChange}
 									/>
 									<span className="icon is-medium is-left">
-										<i className="fas fa-envelope" />
+										<i className="fas fa-search input-icon" />
 									</span>
 								</div>
 							</div>
