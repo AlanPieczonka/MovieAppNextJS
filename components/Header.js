@@ -1,5 +1,6 @@
-import { observer } from 'mobx-react';
+import { observer, inject } from 'mobx-react';
 
+@inject('searchStore')
 @observer
 class Header extends React.Component {
 	handleChange = ({ target: { value } }) => this.props.searchStore.setSearchTerm(value);

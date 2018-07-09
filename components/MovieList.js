@@ -1,19 +1,23 @@
-import { observer } from 'mobx-react';
+import { observer, inject } from 'mobx-react';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
 import chunk from '../utils/chunk';
 import getGenres from '../utils/getGenres';
 
-// not really required for now
+@inject('appStore')
 @observer
 class MoviesList extends React.Component {
 	static propTypes = {
-		movies: PropTypes.array.isRequired,
-		genres: PropTypes.array.isRequired,
-		requestStatus: PropTypes.string.isRequired
+		appStore: PropTypes.shape({
+			movies: PropTypes.array.isRequired,
+			requestStatus: PropTypes.string.isRequired
+		}),
+		genres: PropTypes.array.isRequired
 	};
+
 	render() {
-		const { movies, genres, requestStatus } = this.props;
+		const { movies, requestStatus } = this.props.appStore;
+		const { genres } = this.props;
 		let moviesList;
 		if (movies.length === 0 && requestStatus === 'done') {
 			moviesList = <h1 className="text-center height100">Unfortunately, we cannot find this movie!</h1>;
