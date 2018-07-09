@@ -1,7 +1,7 @@
 import { observer } from 'mobx-react'
 import PropTypes from 'prop-types'
 import MovieSingle from '../components/MovieSingle'
-import { getSingleMovie } from '../services/api'
+import { getSingleMovie } from '../utils/api'
 
 import '../styles/style.scss'
 

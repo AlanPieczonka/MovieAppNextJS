@@ -2,7 +2,7 @@ import { observer, Provider } from 'mobx-react'
 import PropTypes from 'prop-types'
 import Header from '../components/Header'
 import MoviesList from '../components/MovieList'
-import { getAllGenres } from '../services/api'
+import { getAllGenres } from '../utils/api'
 import { searchStore, appStore } from '../store'
 
 import '../styles/style.scss'
