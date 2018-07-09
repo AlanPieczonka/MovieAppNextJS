@@ -17,7 +17,7 @@ class MovieSingle extends React.Component {
 		const { title, release_date, runtime, vote_average, overview, genres, poster_path } = this.props.movie;
 		return (
 			<React.Fragment>
-				<div className="hero-body">
+				<div className="hero-body padding--top0 height100">
 					<div className="container has-text-centered">
 						<h1 className="title">{title}</h1>
 						<div className="columns">
@@ -45,11 +45,11 @@ class MovieSingle extends React.Component {
 										{vote_average}
 									</progress>
 								</section>
-								<section style={{ marginBottom: 5}}>
+								<section style={{ marginBottom: 5 }}>
 									<p className="title is-3">Genres</p>
 									<p className="subtitle is-5">
 										{genres.map((genre) => (
-											<React.Fragment key={genre.id}>{genre.name} </React.Fragment>
+											<React.Fragment key={genre.id}>{genre.name}&nbsp;</React.Fragment>
 										))}
 									</p>
 								</section>
