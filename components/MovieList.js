@@ -42,8 +42,7 @@ class MoviesList extends React.Component {
 		}
 		return (
 			<div className="main">
-				{requestStatus === 'pending' && <h1 className="text-center">Loading...</h1>}
-				<div className="container padding--top25">{moviesList}</div>
+				{requestStatus === 'pending' ? <h1 className="text-center height100">Loading...</h1> : <div className="container padding--top25">{moviesList}</div>}
 			</div>
 		);
 	}
