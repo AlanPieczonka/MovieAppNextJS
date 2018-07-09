@@ -16,8 +16,7 @@ class MoviesList extends React.Component {
 	};
 
 	render() {
-		const { movies, requestStatus } = this.props.appStore;
-		const { genres } = this.props;
+		const { appStore: { movies, requestStatus }, genres } = this.props;
 		let moviesList;
 		if (movies.length === 0 && requestStatus === 'done') {
 			moviesList = <h1 className="text-center height100">Unfortunately, we cannot find this movie!</h1>;
