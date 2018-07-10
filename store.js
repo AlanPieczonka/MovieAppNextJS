@@ -10,7 +10,7 @@ class SearchStore {
   }
 }
 
-class Store {
+class AppStore {
   @observable searchStore
   @observable requestStatus
   @observable movies = []
@@ -80,6 +80,6 @@ class Store {
 }
 
 const searchStore = new SearchStore()
-const appStore = new Store(searchStore)
+const appStore = new AppStore(searchStore)
 
 export { appStore, searchStore }
