@@ -25,60 +25,58 @@ class MovieSingle extends React.Component {
       poster_path
     } = this.props.movie
     return (
-      <Fragment>
-        <div className='hero-body padding--top0 height100'>
-          <div className='container has-text-centered'>
-            <h1 className='title'>{title}</h1>
-            <div className='columns'>
-              <div className='column'>
-                <img
-                  src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
-                  className='image image-center'
-                />
-              </div>
-              <div className='column'>
-                <section>
-                  <p className='title is-3'>Runtime</p>
-                  <p className='subtitle is-5'>{runtime}m</p>
-                </section>
-                <section>
-                  <p className='title is-3'>Release date</p>
-                  <p className='subtitle is-5'>{release_date}</p>
-                </section>
-                <section>
-                  <p className='title is-3'>Average vote</p>
-                  <p className='subtitle is-5' style={{ marginBottom: 5 }}>
-                    {vote_average}
-                  </p>
-                  <progress
-                    className='progress is-info'
-                    value={vote_average}
-                    max='10'
-                  >
-                    {vote_average}
-                  </progress>
-                </section>
-                <section style={{ marginBottom: 5 }}>
-                  <p className='title is-3'>Genres</p>
-                  <p className='subtitle is-5'>
-                    {genres.map(genre => (
-                      <Fragment key={genre.id}>{genre.name}&nbsp;</Fragment>
-                    ))}
-                  </p>
-                </section>
-                <article>{overview}</article>
-                <div className='text-center'>
-                  <Link href='/'>
-                    <button className='button margin--top25'>
+      <>'       '<div className='hero-body padding--top0 height100'>
+        <div className='container has-text-centered'>
+          <h1 className='title'>{title}</h1>
+          <div className='columns'>
+            <div className='column'>
+              <img
+                src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
+                className='image image-center'
+              />
+            </div>
+            <div className='column'>
+              <section>
+                <p className='title is-3'>Runtime</p>
+                <p className='subtitle is-5'>{runtime}m</p>
+              </section>
+              <section>
+                <p className='title is-3'>Release date</p>
+                <p className='subtitle is-5'>{release_date}</p>
+              </section>
+              <section>
+                <p className='title is-3'>Average vote</p>
+                <p className='subtitle is-5' style={{ marginBottom: 5 }}>
+                  {vote_average}
+                </p>
+                <progress
+                  className='progress is-info'
+                  value={vote_average}
+                  max='10'
+                >
+                  {vote_average}
+                </progress>
+              </section>
+              <section style={{ marginBottom: 5 }}>
+                <p className='title is-3'>Genres</p>
+                <p className='subtitle is-5'>
+                  {genres.map(genre => (
+                    <Fragment key={genre.id}>{genre.name}&nbsp;</Fragment>
+                  ))}
+                </p>
+              </section>
+              <article>{overview}</article>
+              <div className='text-center'>
+                <Link href='/'>
+                  <button className='button margin--top25'>
                       Go back to the main page
-                    </button>
-                  </Link>
-                </div>
+                  </button>
+                </Link>
               </div>
             </div>
           </div>
         </div>
-      </Fragment>
+      </div>'     '</>
     )
   }
 }
