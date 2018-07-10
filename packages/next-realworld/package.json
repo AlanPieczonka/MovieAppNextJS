@@ -1,0 +1,11 @@
+{
+  "name": "next-realworld",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@zeit/next-sass": "^0.2.0",
+    "next-images": "^0.10.5",
+    "node-sass": "^4.9.2"
+  }
+}

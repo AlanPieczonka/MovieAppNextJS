@@ -1,2 +1,3 @@
-const withSass = require('@zeit/next-sass');
-module.exports = withSass();
+const nextRealworld = require('next-realworld')
+
+module.exports = nextRealworld()
