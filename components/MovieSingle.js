@@ -1,3 +1,4 @@
+import { Fragment } from 'react'
 import Link from 'next/link'
 import PropTypes from 'prop-types'
 
@@ -24,7 +25,7 @@ class MovieSingle extends React.Component {
       poster_path
     } = this.props.movie
     return (
-      <React.Fragment>
+      <Fragment>
         <div className='hero-body padding--top0 height100'>
           <div className='container has-text-centered'>
             <h1 className='title'>{title}</h1>
@@ -61,9 +62,7 @@ class MovieSingle extends React.Component {
                   <p className='title is-3'>Genres</p>
                   <p className='subtitle is-5'>
                     {genres.map(genre => (
-                      <React.Fragment key={genre.id}>
-                        {genre.name}&nbsp;
-                      </React.Fragment>
+                      <Fragment key={genre.id}>{genre.name}&nbsp;</Fragment>
                     ))}
                   </p>
                 </section>
@@ -79,7 +78,7 @@ class MovieSingle extends React.Component {
             </div>
           </div>
         </div>
-      </React.Fragment>
+      </Fragment>
     )
   }
 }
