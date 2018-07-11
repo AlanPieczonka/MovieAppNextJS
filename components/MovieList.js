@@ -35,12 +35,14 @@ class MoviesList extends React.Component {
                   as={`movie/${id}`}
                   href={{ pathname: '/movie', query: { id } }}
                 >
-                  <img
-                    src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
-                    alt={`Link to ${title}`}
-                  />
+                  <a className='link white'>
+                    <img
+                      src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
+                      alt={`Link to ${title}`}
+                    />
+                    <h1 className='bold white'>{title}</h1>
+                  </a>
                 </Link>
-                <h1 className='bold'>{title}</h1>
                 <ul>
                   {getGenres(genres, genre_ids).map((genre, i) => (
                     <li key={i}>{genre}</li>
