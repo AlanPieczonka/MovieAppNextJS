@@ -1,8 +1,8 @@
 import { observer, inject } from 'mobx-react'
 import Link from 'next/link'
 import PropTypes from 'prop-types'
-import chunk from '../utils/chunk'
 import getGenres from '../utils/getGenres'
+import _ from 'lodash/array'
 
 @inject('appStore')
 @observer
@@ -25,7 +25,7 @@ class MoviesList extends React.Component {
         </h1>
       )
     } else {
-      moviesList = chunk(movies).map((section, i) => {
+      moviesList = _.chunk(movies, 4).map((section, i) => {
         return (
           <div className='columns columns--padding' key={i}>
             {section.map(({ title, poster_path, id, genre_ids }) => (

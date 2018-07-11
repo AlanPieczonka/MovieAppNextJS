@@ -28,6 +28,7 @@
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
     "isomorphic-unfetch": "^2.0.0",
+    "lodash": "^4.17.10",
     "mobx": "^5.0.3",
     "mobx-react": "^5.2.3",
     "next": "6.1.1",
