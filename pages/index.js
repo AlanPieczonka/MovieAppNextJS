@@ -1,3 +1,4 @@
+import { Fragment } from 'react'
 import { observer, Provider } from 'mobx-react'
 import PropTypes from 'prop-types'
 import Header from '../components/Header'
@@ -22,11 +23,11 @@ class Index extends React.Component {
     const { genres } = this.props
     return (
       <div>
-        <Provider searchStore={searchStore}>
-          <Header />
-        </Provider>
-        <Provider appStore={appStore}>
-          <MoviesList genres={genres} />
+        <Provider searchStore={searchStore} appStore={appStore}>
+          <Fragment>
+            <Header />
+            <MoviesList genres={genres} />
+          </Fragment>
         </Provider>
       </div>
     )
