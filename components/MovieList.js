@@ -58,7 +58,7 @@ class MoviesList extends React.Component {
           <div className='container padding--top25'>{moviesList}</div>
         )}
         {this.props.store.requestStatus === 'error' && (
-          <h1 className='text-center height1000' />
+          <h1 className='text-center height100'>There has been an error</h1>
         )}
       </div>
     )
