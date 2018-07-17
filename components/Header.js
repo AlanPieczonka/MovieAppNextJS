@@ -1,12 +1,12 @@
 import { observer, inject } from 'mobx-react'
 
-@inject('searchStore')
+@inject('store')
 @observer
 class Header extends React.Component {
   handleChange = ({ target: { value } }) =>
-    this.props.searchStore.setSearchTerm(value)
+    this.props.store.setSearchTerm(value)
   render () {
-    const { searchStore } = this.props
+    const { store } = this.props
     return (
       <div className='header'>
         <div className='container padding--25'>
@@ -18,7 +18,7 @@ class Header extends React.Component {
                     className='input is-large header'
                     type='search'
                     placeholder='Search movies'
-                    value={searchStore.searchTerm}
+                    value={store.searchTerm}
                     onChange={this.handleChange}
                   />
                   <span className='icon is-medium is-left'>
