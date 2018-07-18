@@ -1,6 +1,10 @@
 const nextSass = require('@zeit/next-sass')
 const nextImages = require('next-images')
 
+require('dotenv').config()
+const path = require('path')
+const Dotenv = require('dotenv-webpack')
+
 module.exports = (nextConfig = {}) => {
   nextConfig.postcssLoaderOptions = Object.assign(
     {},
@@ -21,6 +25,16 @@ module.exports = (nextConfig = {}) => {
           'This plugin is not compatible with Next.js versions below 5.0.0 https://err.sh/next-plugins/upgrade'
         )
       }
+
+      config.plugins = [
+        ...config.plugins,
+
+        // Read the .env file
+        new Dotenv({
+          path: path.join(__dirname, '.env'),
+          systemvars: true
+        })
+      ]
 
       if (typeof nextConfig.webpack === 'function') {
         return nextConfig.webpack(config, options)
