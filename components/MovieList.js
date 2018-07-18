@@ -33,6 +33,7 @@ class MoviesList extends React.Component {
                         movie.poster_path
                       }`}
                       alt={`Link to ${movie.title}`}
+                      className='image-list'
                     />
                     <h1 className='bold white'>{movie.title}</h1>
                   </a>

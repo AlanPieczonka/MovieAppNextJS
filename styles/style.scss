@@ -33,6 +33,7 @@ $title-color: $white;
 	background-color: $main-gray;
 	color: $white;
 	padding-top: 25px;
+	padding-bottom: 30vh;
 }
 
 .input-icon {
@@ -67,6 +68,17 @@ $title-color: $white;
 
 .image-center {
 	margin: 0 auto;
+}
+
+.image-list {
+	margin: 0 auto;
+	width: 100%;
+	@media only screen and (min-width: 769px) {
+		height: 36vh;
+	}
+	@media only screen and (min-width: 940px) {
+		height: 54vh;
+	}
 }
 
 .movie-cell {
