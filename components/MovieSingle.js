@@ -18,7 +18,7 @@ class MovieSingle extends React.Component {
     const { movie } = this.props
     return (
       <Fragment>
-        <div className='hero-body padding--top0 height100'>
+        <div className='hero-body padding--top0'>
           <div className='container has-text-centered'>
             <h1 className='title'>{movie.title}</h1>
             <div className='columns'>

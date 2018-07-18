@@ -12,6 +12,7 @@ export default class MyDocument extends Document {
             integrity='sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt'
             crossOrigin='anonymous'
           />
+          <meta name='viewport' content='width=device-width' />
         </Head>
         <body>
           <Main />
