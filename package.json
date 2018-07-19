@@ -8,7 +8,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "node server.js",
-    "format": "prettier-standard **/*.js",
+    "format": "prettier-standard **/*.js *.js",
     "precommit": "lint-staged"
   },
   "lint-staged": {
