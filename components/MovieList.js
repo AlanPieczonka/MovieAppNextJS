@@ -42,6 +42,11 @@ class MoviesList extends React.Component {
         {this.props.store.requestStatus === 'error' && (
           <h1 className='text-center height100'>There has been an error</h1>
         )}
+        <h1 className='text-center padding--top25'>
+          <a href='https://icons8.com' className='bold white'>
+            Icon pack by Icons8
+          </a>
+        </h1>
       </div>
     )
   }
