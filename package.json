@@ -9,7 +9,9 @@
   "scripts": {
     "dev": "node server.js",
     "format": "prettier-standard **/*.js *.js",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "build": "next build",
+    "start": "NODE_ENV=production node server.js"
   },
   "lint-staged": {
     "linters": {
