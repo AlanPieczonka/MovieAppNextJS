@@ -1,5 +1,4 @@
 const nextSass = require('@zeit/next-sass')
-const nextImages = require('next-images')
 const nextOptimizedImages = require('next-optimized-images')
 
 require('dotenv').config()
