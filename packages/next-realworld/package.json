@@ -5,9 +5,11 @@
   "license": "MIT",
   "dependencies": {
     "@zeit/next-sass": "^0.2.0",
+    "@zeit/next-source-maps": "^0.0.2",
     "dotenv": "^6.0.0",
     "dotenv-webpack": "^1.5.7",
     "next-optimized-images": "^1.4.1",
     "node-sass": "^4.9.2"
-  }
+  },
+  "devDependencies": {}
 }

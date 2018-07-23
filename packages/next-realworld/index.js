@@ -1,5 +1,6 @@
 const nextSass = require('@zeit/next-sass')
 const nextOptimizedImages = require('next-optimized-images')
+const nextSourceMaps = require('@zeit/next-source-maps')
 
 require('dotenv').config()
 const path = require('path')
@@ -17,6 +18,8 @@ module.exports = (nextConfig = {}) => {
   nextConfig = nextSass(nextConfig)
 
   nextConfig = nextOptimizedImages(nextConfig)
+
+  nextConfig = nextSourceMaps(nextConfig)
 
   return Object.assign({}, nextConfig, {
     webpack (config, options) {
