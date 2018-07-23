@@ -1,4 +1,5 @@
 import { Fragment } from 'react'
+import Img from 'react-image'
 import Link from 'next/link'
 import PropTypes from 'prop-types'
 
@@ -23,9 +24,15 @@ class MovieSingle extends React.Component {
             <h1 className='title'>{movie.title}</h1>
             <div className='columns'>
               <div className='column'>
-                <img
+                <Img
                   src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
                   className='image image-center'
+                  unloader={
+                    <img
+                      src='https://i.pinimg.com/favicons/a4f459086724e56f18d3771b0bb2a184d22c3260a8f43d7d924a6722.png?95a08673b219455ac7272f1ce4a6b552'
+                      className='image image-center height90'
+                    />
+                  }
                 />
               </div>
               <div className='column'>
